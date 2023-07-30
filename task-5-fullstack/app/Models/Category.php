@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
     public $timestamps = false;
     public function category()
     {
-        return $this->belongsTo(Article::class);
+        return $this->hasMany(Article::class);
     }
 }
